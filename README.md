@@ -1,53 +1,78 @@
-## 🧭 Unify Guide – Multi-Tool Productivity App
+## 🧭 Unify Guide – All-in-One Productivity Toolkit
 
-This is a cross-platform Flutter application that combines essential productivity tools—**Calculator** and **To-Do List**—into a single lightweight app with a clean interface.
+**Unify Guide** is a modular, cross-platform Flutter app designed to unify daily utility tools in one elegant interface. From calculations and task management to clocks, notes, and more—this app is built to scale with your productivity needs.
 
-### ✨ Features
+---
 
-* 🧮 **Calculator**
-  Perform standard calculations with intuitive button layouts and smooth UI.
+### 🚀 Features
 
-* ✅ **To-Do Manager**
+Current modules included:
 
-  * Add tasks with custom priority levels
-  * Track progress and update task status
-  * Organize tasks efficiently via local storage
+* 🧮 **Calculator** – Basic arithmetic operations with responsive design
+* ✅ **To-Do List** – Add, prioritize, and track tasks with persistent local storage
 
-* 📊 **Performance Reports**
-  Embedded PDF reports and charts visualizing call center data:
+Planned modules:
 
-  * `Call_Center_Analysis_Report.pdf`
-  * `Call_Center_Performance_Analysis.pdf`
-  * Charts like `call_volume_by_hour.png`, `call_volume_by_status.png`
+* 🗓️ Calendar
+* ⏰ Clock Suite (Alarm, Stopwatch, Timer, World Clock)
+* 📝 Notes
+* 📷 QR Scanner
+* ☁️ Weather
+* 📻 Radio
+* 🎙️ Voice Recorder
+* 🎵 Music Player
 
-### 📁 Project Structure
+Each module will be independently accessible from the unified home screen.
+
+---
+
+### 🧱 Project Structure
 
 ```
 lib/
-├── main.dart                # Entry point of the app
+├── main.dart              # Entry point and route management
 └── materials/
-    ├── pages/              # Home, calculator, to-do modules
-    ├── widgets/            # Shared UI widgets
-    ├── constants/          # App-wide constants like colors
-    └── classes/            # Local storage and theme handling
+    ├── pages/             # Feature modules (calculator, todo, etc.)
+    ├── constants/         # Global colors, config
+    ├── classes/           # Theme provider, local storage
+    └── widgets/           # Reusable UI widgets
 
 assets/
-└── images/                 # Icons for UI elements
+└── images/                # UI illustrations/icons
 
-android/, ios/, windows/    # Platform-specific config for build & release
-
-web/                        # Web app assets for PWA support
+web/, android/, ios/, windows/  # Platform configs
 ```
 
-### 🚀 Getting Started
+---
 
-#### Prerequisites
+### 💡 Navigation Routes
 
-* [Flutter SDK](https://flutter.dev/docs/get-started/install)
-* Dart 3.x
-* IDE (e.g. VS Code or Android Studio)
+```dart
+{
+  "/": (context) => const HomePage(),
+  "/calculator": (context) => const CalculatorPage(title: "My Calculator"),
+  "/to-do": (context) => const TodoPage(),
 
-#### Installation
+  // Upcoming:
+  // "/calendar": ...
+  // "/clock": ...
+  // "/notes": ...
+  // "/qr-scanner": ...
+  // "/weather": ...
+}
+```
+
+---
+
+### 🛠️ Getting Started
+
+#### Requirements
+
+* Flutter SDK (3.x recommended)
+* Dart
+* Android Studio / VS Code
+
+#### Run the App
 
 ```bash
 git clone https://github.com/hadimn/unify_guide.git
@@ -56,30 +81,38 @@ flutter pub get
 flutter run
 ```
 
-#### Run on Web
+Run for web:
 
 ```bash
 flutter run -d chrome
 ```
 
+---
+
+### 📊 Included Reports
+
+* `Call_Center_Analysis_Report.pdf`
+* `Call_Center_Performance_Analysis.pdf`
+* Visual charts:
+
+  * `call_volume_by_hour.png`
+  * `call_volume_by_status.png`
+
+---
+
 ### 📦 Dependencies
 
-* `provider` – State management
-* `shared_preferences` – Local storage for to-dos
-* `flutter_svg` – Scalable icons
-* `cupertino_icons`, `material_design_icons_flutter` – UI icons
+* `provider` – Theme and state management
+* `shared_preferences` – Local storage
+* `cupertino_icons` – iOS-style icons
+* `flutter_svg` – SVG support
 
-### 📊 Screenshots
+---
 
-You can add screenshots or use the provided PNGs in `assets/images/` to showcase:
+### 🔮 Roadmap
 
-* Calculator interface
-* To-Do list management
-* Call center report summaries
-
-### 📈 Future Enhancements
-
-* Add a calendar integration to the To-Do module
-* Export To-Do tasks to PDF
-* Cloud sync (Firebase or Supabase)
+* Modular architecture for plug-in tools
 * Dark/light theme toggle
+* Cloud sync (Firebase or Supabase)
+* Offline support for all modules
+* Export features (PDF, CSV)
